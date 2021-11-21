@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index1/index",
+    "pages/my/my",
+    "pages/task/task",
+    "pages/event/event"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "TickTick",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#00000B",
+    "list": [
+      {
+        "pagePath": "pages/index1/index",
+        "text": "倒计时",
+        "iconPath": "./images/jilu1.png",
+        "selectedIconPath": "./images/jilu.png"
+      },
+      {
+        "pagePath": "pages/task/task",
+        "text": "任务",
+        "iconPath": "./images/renwu1.png",
+        "selectedIconPath": "./images/renwu.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "设置",
+        "iconPath": "./images/shezhi1.png",
+        "selectedIconPath": "./images/shezhi.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
