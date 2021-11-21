@@ -1,0 +1,35 @@
+/**index.wxss**/
+.nodata {
+  padding:100rpx 20rpx 150rpx 20rpx; 
+  text-align: center;
+  line-height: 48rpx;
+  font-size: 32rpx;
+  color: #999;
+}
+.event{
+  width:100%; 
+  font-size:30rpx;
+}
+.event .date{ 
+  width:45%; 
+  display:inline-block;
+  text-align: left; 
+  overflow:hidden; 
+  color:#888888;
+}
+.delrowbutton{
+  background-color:#FF0000; 
+  color:#FFF; 
+  text-align:center; 
+  overflow:hidden; float:right; 
+  border-top: none; 
+  cursor:pointer;
+}
+.delrowbutton .btn{
+  width: 100rpx; 
+  display:block; 
+  white-space: nowrap;
+}
+.delrowbutton:before{
+  display: none
+}

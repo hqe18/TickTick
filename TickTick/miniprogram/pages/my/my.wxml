@@ -1,0 +1,20 @@
+<view wx:if="{{!openid}}" class="login" style="padding-bottom:30px">
+  <image src="../../images/unlogin.png" class="unloginImage">
+  </image>
+  <button open-type="getUserInfo" 
+  lang="zh_CN" 
+  bindtap="onGotUserInfo"
+   class="login-button"
+   style="width:210rpx;font-size:28rpx;">点击登录</button>
+</view>
+
+<view wx:if="{{openid}}" class="login" style="padding-bottom:30px">
+  <image class="image" src="{{userinfo.avatarUrl}}"></image>
+  <button 
+  lang="zh_CN" 
+  bindtap="clearLogin"
+  class="login-button"
+  style="width:210rpx;font-size:28rpx;">退出登录</button>
+</view>
+
+<view class="name" style="font-size:28rpx;">你好，{{userinfo.nickName}}(*╹▽╹*)</view>

@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:if="{{eventList.length <= 0}}">
+    <view>
+      <view class="nodata">
+      <text>你没有设置DDL倒计时。 \r\n今天需要创建一个吗？</text></view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <block wx:for-items="{{ eventList }}" wx:for-index="index" wx:key="{{item.date}}">
+    <!--  实现滑条删除 -->
+    <view style="padding:10px;" > 
+      <view class="weui-media-box weui-media-box_appmsg delrowbutton" style="{{ index == showDelRow ? '' : 'display:none' }};width:{{delRowButtonWidth - 20}}rpx;" catchtap="delRow" id="del_{{index}}">
+        <view class="btn">删除</view>
+    </view>
+    <navigator id="event_{{index}}" bind:touchstart="rowTouchStart" bind:touchend="rowTouchEnd" bind:touchmove="rowTouchMove" bind:touchcancel="rowTouchCancel" url="/pages/event/event?{{item.urlParams}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" style="margin-right:{{index == showDelRow ? delRowButtonWidth : 0 }}rpx;">
+        <view class="event">
+          <view class="date">距离{{item.date}}</view> 
+        </view>
+        <view style="position:fixed;margin-top:29px;font-size:14px">备注:{{item.name}}</view>
+        <view style="position:fixed;margin-top:29px;font-size:14px;right:4%">剩余:{{item.leftTime}}</view>        
+      </navigator>
+    </view>
+    </block>
+  </view>
+
+  <view class="buttons">
+    <button type="primary" size="default" bindtap="addEvent" hover-class="other-button-hover"> + 新增DDL倒计时 </button>
+  </view>
+</view>

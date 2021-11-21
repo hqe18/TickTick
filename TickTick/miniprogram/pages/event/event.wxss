@@ -1,0 +1,50 @@
+page{
+  padding-top:0px;
+}
+.event{
+  background:#FFF; 
+  border-bottom: 1rpx solid #E5E5E5; 
+  display:flex; 
+  flex-direction: column; 
+  align-items:center; 
+  min-height: 80%;  
+  margin-bottom: 10rpx; 
+  vertical-align: top; 
+  padding-bottom:80rpx;
+}
+.event .eventdate{
+  text-align:left;color:#333; 
+  font-size:28rpx; 
+  padding-right:400rpx;
+}
+.event .days {
+  margin: 40rpx auto 80rpx auto; 
+}
+.event .days .num{
+  color:#FF0000; 
+  font-size:210rpx; 
+  font-weight:bold;
+}
+.event .days .unit{
+  color: #FF0000; 
+  font-size:80rpx;
+}
+.buttons{
+  margin-top:10rpx;
+}
+.iconlinks{
+  margin:0; 
+  text-align: right; 
+  padding: 0 30rpx 0 0;
+}
+.iconlinks .iconlink{
+  color:#999; 
+  font-size: 28rpx; 
+  line-height:38rpx; 
+  display:inline-block; 
+  padding-left:37rpx; 
+  margin-left:50rpx; 
+  background-size:35rpx 35rpx; 
+  background-repeat:no-repeat; 
+  background-position: left top;
+}

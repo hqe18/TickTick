@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="event">
+        <view class="eventdate" wx:if="{{showDate}}">{{ event.date }}</view>
+        <view class="days"><text class="unit">还有</text><text class="num">{{ event.days }}</text><text class="unit">天</text></view>
+    </view>
+    <view class="iconlinks" wx:if="{{editable || deleteable}}">
+        <view bindtap="editEvent" class="iconlink editicon" wx:if="{{editable}}">修改</view>
+        <view bindtap="deleteEvent" class="iconlink deleteicon" wx:if="{{deleteable}}">删除</view>
+    </view>
+</view>
