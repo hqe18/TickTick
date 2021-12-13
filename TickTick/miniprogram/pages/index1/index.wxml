@@ -6,14 +6,11 @@
       <text>你没有设置DDL倒计时。 \r\n今天需要创建一个吗？</text></view>
     </view>
   </view>
-  <view class="weui-panel">
+  <view class="weui-panel" wx:if="{{openid}}">
     <block wx:for-items="{{ eventList }}" wx:for-index="index" wx:key="{{item.date}}">
     <!--  实现滑条删除 -->
     <view style="padding:10px;" > 
-      <view class="weui-media-box weui-media-box_appmsg delrowbutton" style="{{ index == showDelRow ? '' : 'display:none' }};width:{{delRowButtonWidth - 20}}rpx;" catchtap="delRow" id="del_{{index}}">
-        <view class="btn">删除</view>
-    </view>
-    <navigator id="event_{{index}}" bind:touchstart="rowTouchStart" bind:touchend="rowTouchEnd" bind:touchmove="rowTouchMove" bind:touchcancel="rowTouchCancel" url="/pages/event/event?{{item.urlParams}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" style="margin-right:{{index == showDelRow ? delRowButtonWidth : 0 }}rpx;">
+    <navigator id="event_{{index}}" bind:touchstart="rowTouchStart" bind:touchend="rowTouchEnd" bind:touchmove="rowTouchMove" bind:touchcancel="rowTouchCancel" url="/pages/event/event?{{item.urlParams}}&_id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" style="margin-right:{{index == showDelRow ? delRowButtonWidth : 0 }}rpx;">
         <view class="event">
           <view class="date">距离{{item.date}}</view> 
         </view>

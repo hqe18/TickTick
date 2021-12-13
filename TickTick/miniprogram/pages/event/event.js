@@ -19,7 +19,7 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(options.d)
+    console.log(options)
     var d = new Date(parseInt(options.d))
     console.log(decodeURI(options.n))
 
@@ -30,7 +30,7 @@ Page({
 
     this.setData({
       event:{
-            id: options.i,
+            id: options._id,
             name: eventName,
             d: d.getTime(),
             date: eventDate,
@@ -168,6 +168,13 @@ Page({
       title: '',
       content: '要删除这个事件吗？',
       success: function(res) {
+        wx.cloud.database().collection("time").doc(that.data.event.id).remove({
+          success:res=>{
+            wx.navigateBack({
+              delta: 0,
+            })
+          }
+        })
         if (res.confirm) {
           console.log("will delete " + that.data.event.id)
           util.deleteEventById(that.data.event.id)

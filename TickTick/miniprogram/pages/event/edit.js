@@ -104,6 +104,11 @@ Page({
       name: this.data.event.name,
       d: theDate.getTime()
     }
+    wx.cloud.database().collection("time").add({
+      data:{
+        ...newEvent
+      }
+    })
     console.log("save event " + this.data.event.id)
     util.saveEventToStoreage(newEvent)
 

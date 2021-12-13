@@ -1,2 +1,22 @@
-<!--pages/task/task.wxml-->
-<text>pages/task/task.wxml</text>
+<image hidden="{{bg_hidden}}" class="bg_test" src="{{imageSrc}}" mode="aspectFill"/>
+<view class="container">
+  <view class="search">
+    <image src="../../images/plus.png" bindtap="addNoteHandle"></image>
+    <input type="text" placeholder="添加任务" value="{{searchText}}" bindinput="inputChangeHandle" bindconfirm="addNoteHandle"  />
+  </view>
+  <block wx:if="{{notebook.length}}" wx:if="{{openid}}">
+  <view class="notebook">
+    <view class="item {{item.completed ? ' completed': ''}}" wx:for="{{notebook}}" bindtap="toggleNoteHandle" data-index="{{index}}" wx:key="index" >
+      <icon type="{{item.completed ? 'success': 'circle'}}" size="18"></icon>
+      <text>{{item.name}}</text>
+      <icon type="clear" size="18" catchtap="removeNoteHandle" data-index="{{index}}"></icon>
+    </view>
+  </view>
+  <view class="footer">
+    <text bindtap="toggleAllHandle">全选完成</text>
+    <text wx:if="{{leftCount>0}}">剩余待办：{{leftCount}}个</text>
+    <text bindtap="clearCompletedHandle">清空完成</text>
+  </view>
+</block>
+<view class="zero" wx:else>现在这里空空如也~马上安排起来！</view>
+</view>

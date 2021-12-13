@@ -122,43 +122,54 @@ Page({
 
   // 进行操作后初始化页面DDL排序
   initEventList: function(){
-    var myEvents = util.getMyEvents()
-    try{
-      myEvents.sort(function(e1, e2){
-        return e1.d - e2.d
-      })
-    }catch(ex){
-    }
-    var eventList = []
-    for(var i=0; i<myEvents.length; i++){
-      var event = {}
-      var myEvent = myEvents[i]
-      event["id"] = myEvent.id
-      event["name"] = myEvent.name
-      event["d"] = parseInt(myEvent.d)
-      event["date"] = util.formatDate(new Date(event.d))
-      event["urlParams"] = "i=" + event.id + "&d=" + event.d + "&n=" + encodeURI(event.name)
-      var p = this.getTime({
-        i:event.id,
-        d:event.d,
-        n:encodeURI(event.name)
-      })
-
-      eventList.push({
-        ...event,
-        ...p
-      })
-    }
-    this.setData({eventList: eventList})
-    this.data.timer = setInterval(() =>{ 
-      for(var i in this.data.eventList){
-        this.data.eventList[i]["leftTime"] = util.getTimeLeft(this.data.eventList[i].d)
+    wx.cloud.database().collection("time").get({
+      success:res=>{
+        var myEvents = res.data
+        var eventList = []
+        for(var i=0; i<myEvents.length; i++){
+          var event = {}
+          var myEvent = myEvents[i]
+          event["id"] = myEvent._id
+          event["name"] = myEvent.name
+          event["d"] = parseInt(myEvent.d)
+          event["date"] = util.formatDate(new Date(event.d))
+          event["urlParams"] = "i=" + event.id + "&d=" + event.d + "&n=" + encodeURI(event.name)
+          var p = this.getTime({
+            i:event.id,
+            d:event.d,
+            n:encodeURI(event.name)
+          })
+    
+          eventList.push({
+            ...event,
+            ...p
+          })
+        }
+        this.setData({eventList: eventList})
+        this.data.timer = setInterval(() =>{ 
+          for(var i in this.data.eventList){
+            this.data.eventList[i]["leftTime"] = util.getTimeLeft(this.data.eventList[i].d)
+          }
+          this.setData({eventList: this.data.eventList})
+        }, 1000);   
       }
-      this.setData({eventList: this.data.eventList})
-    }, 1000);   
+    })
+    // var myEvents = util.getMyEvents()
+    // try{
+    //   myEvents.sort(function(e1, e2){
+    //     return e1.d - e2.d
+    //   })
+    // }catch(ex){
+    // }
+
   },
 
   onShow: function () {
+    const ui=wx.getStorageSync('userinfo')
+    this.setData({
+      userinfo: ui,
+      openid: ui.openid
+    })
     var now = new Date()
     this.setData({calendar:{year: now.getFullYear(), month: (now.getMonth() < 6 ? 0 : 6)}})
     this.initEventList()
