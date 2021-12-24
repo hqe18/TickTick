@@ -39,7 +39,7 @@
   ---------------------------------------------
   #### 2021年12月24日正式版
   
-   <img src=".\img\image-gh_4bba3c035010_1280.jpg" alt="gh_4bba3c035010_1280" style="zoom:50%;" />
+   <img src=".\img\gh_4bba3c035010_1280.jpg" alt="gh_4bba3c035010_1280" style="zoom:50%;" />
 
 
 
