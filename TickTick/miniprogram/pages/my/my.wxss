@@ -1,4 +1,7 @@
 @import '../../wxss/style/weui.wxss';
+page{
+  background: rgb(237, 237, 250);
+}
 
 .image{
   width: 150rpx;

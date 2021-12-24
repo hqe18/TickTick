@@ -1,6 +1,10 @@
 /* .container{
   border-top: 1rpx solid gray;
 } */
+page{
+  background: rgb(232, 255, 251);
+}
+
 .bg_test {
   width: 100%;
   height: 100%;

@@ -1,10 +1,10 @@
 <image hidden="{{bg_hidden}}" class="bg_test" src="{{imageSrc}}" mode="aspectFill"/>
-<view class="container">
+<view class="container"  wx:if="{{openid}}">
   <view class="search">
     <image src="../../images/plus.png" bindtap="addNoteHandle"></image>
     <input type="text" placeholder="添加任务" value="{{searchText}}" bindinput="inputChangeHandle" bindconfirm="addNoteHandle"  />
   </view>
-  <block wx:if="{{notebook.length}}" wx:if="{{openid}}">
+  <block wx:if="{{notebook.length}}">
   <view class="notebook">
     <view class="item {{item.completed ? ' completed': ''}}" wx:for="{{notebook}}" bindtap="toggleNoteHandle" data-index="{{index}}" wx:key="index" >
       <icon type="{{item.completed ? 'success': 'circle'}}" size="18"></icon>

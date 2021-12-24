@@ -1,4 +1,8 @@
 /**index.wxss**/
+page{
+  background: rgba(154, 176, 236, 0.158);
+}
+
 .nodata {
   padding:100rpx 20rpx 150rpx 20rpx; 
   text-align: center;

@@ -12,8 +12,6 @@ Page({
     leftCount:0,
     allCompleted:false,
     notebook:[
-      // {name:'小程序学习',
-      // completed:false}
     ],
     imageSrc:null,
     bg_hidden:null,

@@ -1,12 +1,12 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container"  wx:if="{{openid}}">
   <view wx:if="{{eventList.length <= 0}}">
     <view>
       <view class="nodata">
       <text>你没有设置DDL倒计时。 \r\n今天需要创建一个吗？</text></view>
     </view>
   </view>
-  <view class="weui-panel" wx:if="{{openid}}">
+  <view class="weui-panel">
     <block wx:for-items="{{ eventList }}" wx:for-index="index" wx:key="{{item.date}}">
     <!--  实现滑条删除 -->
     <view style="padding:10px;" > 
