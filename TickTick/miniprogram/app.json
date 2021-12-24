@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index1/index",
     "pages/my/my",
+    "pages/index1/index",
     "pages/task/task",
     "pages/event/event"
   ],
@@ -23,13 +23,13 @@
       },
       {
         "pagePath": "pages/task/task",
-        "text": "任务",
+        "text": "备忘录",
         "iconPath": "./images/renwu1.png",
         "selectedIconPath": "./images/renwu.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "设置",
+        "text": "我的",
         "iconPath": "./images/shezhi1.png",
         "selectedIconPath": "./images/shezhi.png"
       }
